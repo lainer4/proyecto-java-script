@@ -33,7 +33,8 @@ var Calculadora = {
  	 this.decimal = 0,
  	 this.viewdisplay();
  },
- /*funcion multiplica*/
+
+
   por: function(){
  		 this.animacionuno("por");
  	 this.num1 = Number(this.pantalla),
@@ -46,7 +47,8 @@ var Calculadora = {
  	 this.decimal = 0,
  	 this.viewdisplay();
  },
- /*funcion dividir*/
+
+
   dividido: function(){
  		 this.animacionuno("dividido");
  	 this.num1 = Number(this.pantalla),
@@ -59,7 +61,9 @@ var Calculadora = {
  	 this.decimal = 0,
  	 this.viewdisplay();
  },
- /*funcion sumar*/
+
+
+
  mas: function(){
  		 this.animacionuno("mas");
  	 this.num1 += Number(this.pantalla),
@@ -72,7 +76,9 @@ var Calculadora = {
  	 this.decimal = 0,
  	 this.viewdisplay();
  },
- /*funciÃ³n igual*/
+
+
+
  igual: function(){
   this.animacionuno("igual");
   switch(this.opcion){
@@ -168,6 +174,48 @@ var Calculadora = {
 			this.viewdisplay();
 		}
 	},
+
+	
+	punto: function(){
+		this.animacionuno("punto");
+		if(this.decimal == 0){
+			this.pantalla += ".";
+		}
+		this.decimal = 1,
+		this.viewdisplay();
+	},
+
+
+	on: function(){
+		this.animacionuno("on");
+		this.pantalla = "0",
+		this.decimal = 0,
+		this.signo = 0,
+		this.stop = 0,
+		this.controlen = 8
+		this.num1 = 0,
+		this.auxestado = 0,
+		this.auxnum = 0,
+		this.opcion = 0,
+		this.auxresultado = 0,
+		this.viewdisplay();
+	},
+
+	sign: function(){
+		this.animacionuno("sign");
+		if(this.pantalla != 0){
+			if(this.signo == 0){
+				this.pantalla = "-" + this.pantalla,
+				this.signo = 1;
+			}else{
+				this.pantalla = this.pantalla.slice(1);
+				this.signo = 0;
+			}
+		}
+		this.viewdisplay();
+	},
+
+
 
 
 	viewdisplay: function(){
